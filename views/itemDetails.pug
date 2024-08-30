@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+    h1 #{title}
+    br
+
+    h5 #[strong Category:] 
+        a(href=`/categories/category/${category.id}`) #{category.name}
+    h5 #[strong Price:] #{price}$
+    h5 #[strong Number In Stock:] #{numberInStock}
+    h5 #[strong Description:] #{description}
+    hr
+    h5 
+        a(href=`/items/${itemId}/delete`) Delete Item
+    h5 
+        a(href=`/items/${itemId}/update`) Update Item

@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} an express website developed as a part of the odin project curriculum.
+  br
+
+  hr
+
+  h4 The inventory has the following record counts.
+  ul 
+    li  #{categoryCount} Categories 
+    li #{itemCount} Items

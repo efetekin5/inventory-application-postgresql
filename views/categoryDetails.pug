@@ -1,0 +1,19 @@
+extends layout 
+
+block content 
+    h1 Category: #{title}
+    h5 #{description}
+    br
+    h3 All Items:
+
+    if categoryItems.length
+        ul 
+            each item in categoryItems
+                li 
+                    h5 
+                        a(href=item.url) #{item.name}
+    hr
+    h5 
+        a(href=`/categories/category/${categoryId}/delete`) Delete Category
+    h5
+        a(href=`/categories/category/${categoryId}/update`) Update Category

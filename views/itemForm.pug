@@ -1,0 +1,48 @@
+extends layout 
+
+block content 
+    h1 #{title}: #{name}
+    br
+
+    form(method='POST')
+        h5
+            label(for='category') Category:
+            select#category.form-control(name='category' required)
+                each category in categories
+                    if itemCategoryId != undefined
+                        if category.id.toString() === itemCategoryId.toString()
+                            option(value=category.id selected) #{category.name}
+                        else
+                            option(value=category.id) #{category.name}
+                    else 
+                        option(value=category.id) #{category.name}
+        br
+
+        h5
+            label(for='name') Name:
+            input#name.form-control(type='text' name='name' required value=(name === undefined ? '' : name))
+        br
+
+        h5
+            label(for='description') Description:
+            input#description.form-control(type='text' name='description' required value=(description === undefined ? '' : description))
+        br
+        
+        h5
+            label(for='price') Price:
+            input#price.form-control(type='number' min="0" max="10000" step="0.01" name='price' required value=(price === undefined ? '' : price))
+        br
+
+        h5
+            label(for='numberInStock') Number In Stock:
+            input#numberInStock.form-control(type='number' name='numberInStock' value=(numberInStock === undefined ? '' : numberInStock))
+        br
+
+        button.btn.btn-primary(type='submit') Submit 
+
+    br  
+    if errors 
+        h3 Errors:
+        ul 
+            each error in errors 
+                li #{error.msg}

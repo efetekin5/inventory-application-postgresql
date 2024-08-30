@@ -1,0 +1,18 @@
+extends layout 
+
+block content 
+    h1 Delete Category: #{categoryName}
+    br
+
+    if categoryItems.length
+        h4 You need to delete these items first 
+        ul 
+            each item in categoryItems 
+                h5 
+                    li
+                        a(href=item.url) #{item.name}
+    else
+        h5 Are you sure you want to delete this category?
+        br
+        form(method='POST')
+            button.btn.btn-primary(type='submit') Delete

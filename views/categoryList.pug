@@ -1,0 +1,9 @@
+extends layout 
+
+block content
+    h1 #{title}
+    ul 
+        each category in categories 
+            li 
+                h5
+                    a(href=`/categories/category/${category.id}`) #{category.name}
